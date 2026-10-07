@@ -1,0 +1,71 @@
+/* =========================================================
+   DỮ LIỆU WEBSITE – chỉ cần sửa file này
+   ========================================================= */
+
+export const SITE = {
+  // Đổi thành tên miền thật khi có (VD: https://vairemducmanh.vn), hoặc đặt biến môi trường NEXT_PUBLIC_SITE_URL trên Vercel
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://vai-rem-duc-manh.vercel.app",
+  shortName: "Đức Mạnh",
+  legalName: "Công ty TNHH Sản xuất Thương mại Xuất nhập khẩu Đức Mạnh",
+  taxId: "Đang cập nhật", // TODO
+  address: "714 – 716 Phạm Văn Bạch, Phường 12, Quận Gò Vấp, TP.HCM",
+  hours: "Thứ 2 – Chủ nhật, 8:00 – 18:00", // TODO
+  phone: "0909 722 975", // số cho nút "Gọi đặt vải" / "Gọi ngay"
+  zalo: "0909 722 975", // số Zalo trên trang Liên hệ
+  // zalo: true → hiện trong bong bóng Zalo
+  phones: [
+    { num: "0909 722 975", label: "Tư vấn – A. Thành", zalo: true },
+    { num: "0936 100 400", label: "Tư vấn", zalo: true },
+    { num: "0934 111 033", label: "Tư vấn", zalo: true },
+    { num: "0938 505 100", label: "A. Mạnh", zalo: false },
+  ],
+  email: "lienhe@vairemducmanh.vn", // TODO
+  facebook: "https://www.facebook.com/profile.php?id=61588620402972",
+  priceUpdated: "01/10/2026",
+  codePrefix: "ĐM-", // mã hiển thị: ĐM-4356
+  homeCount: 8, // số sản phẩm hiện ở trang chủ
+  about:
+    "Hơn 20 năm qua, Công ty Đức Mạnh chuyên cung cấp vải may màn, rèm cửa với giá cả hợp lý cho các đại lý rèm cửa trên toàn quốc, cùng xưởng may rèm, nhà thầu nội thất và khách lẻ.",
+};
+
+export type Book = {
+  id: string; // số quyển = 2 số đầu của mã vải
+  priceMin: number | null; // đ/m, null nếu chưa có giá
+  priceMax: number | null;
+  width: string;
+  comp?: string;
+};
+
+/* GIÁ THEO QUYỂN MẪU – mọi mã trong cùng quyển có chung giá */
+export const BOOKS: Book[] = [
+  { id: "38", priceMin: 75000, priceMax: 85000, width: "2m8 – 3m2" },
+  { id: "39", priceMin: null, priceMax: null, width: "2m8 – 3m2" }, // TODO: giá
+  { id: "40", priceMin: null, priceMax: null, width: "2m8 – 3m2" }, // TODO: giá
+  { id: "42", priceMin: null, priceMax: null, width: "2m8 – 3m2" }, // TODO: giá
+  { id: "43", priceMin: null, priceMax: null, width: "2m8 – 3m2", comp: "100% Polyester" }, // TODO: giá
+];
+
+export type Product = {
+  code: string; // 4 số, VD "4356" – quyển tự nhận từ 2 số đầu
+  image: string; // ảnh trong thư mục public/
+};
+
+/* SẢN PHẨM – thêm sản phẩm: chép ảnh vào public/images/products/ rồi thêm 1 dòng */
+export const PRODUCTS: Product[] = [
+  { code: "4356", image: "/images/products/dm-4356.jpg" },
+  { code: "4360", image: "/images/products/dm-4360.jpg" },
+  { code: "4362", image: "/images/products/dm-4362.jpg" },
+];
+
+/* ===================== Hàm tiện ích ===================== */
+export const cp = (code: string) => SITE.codePrefix + code;
+export const telHref = (num: string) => "tel:" + num.replace(/\s/g, "");
+export const zaloHref = (num: string) => "https://zalo.me/" + num.replace(/\s/g, "");
+export const bookOf = (code: string) => BOOKS.find((b) => code.startsWith(b.id));
+export const hasPrice = (b?: Book) => !!b && b.priceMin != null;
+const k = (n: number) => n.toLocaleString("vi-VN");
+export const priceText = (b?: Book) => {
+  if (!b || b.priceMin == null) return null;
+  return b.priceMax && b.priceMax !== b.priceMin ? `${k(b.priceMin)} – ${k(b.priceMax)}đ` : `${k(b.priceMin)}đ`;
+};
+export const mapHref = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(SITE.address);
