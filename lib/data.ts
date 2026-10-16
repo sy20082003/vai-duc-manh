@@ -69,9 +69,25 @@ export const PRODUCTS: Product[] = [
   { code: "4230", image: "/images/products/dm-4230.jpg" },
   { code: "4232", image: "/images/products/dm-4232.jpg" },
   // Quyển 43
+  { code: "4310", image: "/images/products/dm-4310.jpg" },
+  { code: "4314", image: "/images/products/dm-4314.jpg" },
+  { code: "4316", image: "/images/products/dm-4316.jpg" },
+  { code: "4326", image: "/images/products/dm-4326.jpg" },
+  { code: "4332", image: "/images/products/dm-4332.jpg" },
+  { code: "4334", image: "/images/products/dm-4334.jpg" },
+  { code: "4336", image: "/images/products/dm-4336.jpg" },
+  { code: "4340", image: "/images/products/dm-4340.jpg" },
+  { code: "4342", image: "/images/products/dm-4342.jpg" },
+  { code: "4344", image: "/images/products/dm-4344.jpg" },
+  { code: "4346", image: "/images/products/dm-4346.jpg" },
+  { code: "4350", image: "/images/products/dm-4350.jpg" },
+  { code: "4352", image: "/images/products/dm-4352.jpg" },
+  { code: "4354", image: "/images/products/dm-4354.jpg" },
   { code: "4356", image: "/images/products/dm-4356.jpg" },
   { code: "4360", image: "/images/products/dm-4360.jpg" },
   { code: "4362", image: "/images/products/dm-4362.jpg" },
+  { code: "4364", image: "/images/products/dm-4364.jpg" },
+  { code: "4366", image: "/images/products/dm-4366.jpg" },
 ];
 
 /* ===================== Hàm tiện ích ===================== */
