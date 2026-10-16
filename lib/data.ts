@@ -51,6 +51,24 @@ export type Product = {
 
 /* SẢN PHẨM – thêm sản phẩm: chép ảnh vào public/images/products/ rồi thêm 1 dòng */
 export const PRODUCTS: Product[] = [
+  // Quyển 42
+  { code: "4202", image: "/images/products/dm-4202.jpg" },
+  { code: "4204", image: "/images/products/dm-4204.jpg" },
+  { code: "4206", image: "/images/products/dm-4206.jpg" },
+  { code: "4208", image: "/images/products/dm-4208.jpg" },
+  { code: "4210", image: "/images/products/dm-4210.jpg" },
+  { code: "4212", image: "/images/products/dm-4212.jpg" },
+  { code: "4214", image: "/images/products/dm-4214.jpg" },
+  { code: "4216", image: "/images/products/dm-4216.jpg" },
+  { code: "4218", image: "/images/products/dm-4218.jpg" },
+  { code: "4220", image: "/images/products/dm-4220.jpg" },
+  { code: "4222", image: "/images/products/dm-4222.jpg" },
+  { code: "4224", image: "/images/products/dm-4224.jpg" },
+  { code: "4226", image: "/images/products/dm-4226.jpg" },
+  { code: "4228", image: "/images/products/dm-4228.jpg" },
+  { code: "4230", image: "/images/products/dm-4230.jpg" },
+  { code: "4232", image: "/images/products/dm-4232.jpg" },
+  // Quyển 43
   { code: "4356", image: "/images/products/dm-4356.jpg" },
   { code: "4360", image: "/images/products/dm-4360.jpg" },
   { code: "4362", image: "/images/products/dm-4362.jpg" },
