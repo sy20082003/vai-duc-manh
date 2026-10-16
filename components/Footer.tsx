@@ -23,7 +23,7 @@ export default function Footer() {
               {p.num} – {p.label}
             </a>
           ))}
-          <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+          {SITE.email && <a href={`mailto:${SITE.email}`}>{SITE.email}</a>}
           <a href={SITE.facebook} target="_blank" rel="noopener noreferrer">
             Facebook
           </a>

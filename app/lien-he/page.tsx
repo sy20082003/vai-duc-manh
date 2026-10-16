@@ -45,15 +45,17 @@ export default function ContactPage() {
                 <b>Trang Facebook công ty</b>
               </span>
             </a>
-            <a className="channel" href={`mailto:${SITE.email}`}>
-              <span className="ic">
-                <MailIcon />
-              </span>
-              <span>
-                <small>Email</small>
-                <b>{SITE.email}</b>
-              </span>
-            </a>
+            {SITE.email && (
+              <a className="channel" href={`mailto:${SITE.email}`}>
+                <span className="ic">
+                  <MailIcon />
+                </span>
+                <span>
+                  <small>Email</small>
+                  <b>{SITE.email}</b>
+                </span>
+              </a>
+            )}
             <a className="channel" href={mapHref} target="_blank" rel="noopener noreferrer">
               <span className="ic">
                 <PinIcon />

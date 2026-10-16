@@ -3,8 +3,7 @@
    ========================================================= */
 
 export const SITE = {
-  // Đổi thành tên miền thật khi có (VD: https://vairemducmanh.vn), hoặc đặt biến môi trường NEXT_PUBLIC_SITE_URL trên Vercel
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://vai-rem-duc-manh.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://vaiducmanh.com.vn",
   shortName: "Đức Mạnh",
   legalName: "Công ty TNHH Sản xuất Thương mại Xuất nhập khẩu Đức Mạnh",
   taxId: "Đang cập nhật", // TODO
@@ -19,7 +18,7 @@ export const SITE = {
     { num: "0934 111 033", label: "Tư vấn", zalo: true },
     { num: "0938 505 100", label: "A. Mạnh", zalo: false },
   ],
-  email: "lienhe@vairemducmanh.vn", // TODO
+  email: "", // TODO: điền email thật; để trống thì website tự ẩn email
   facebook: "https://www.facebook.com/profile.php?id=61588620402972",
   priceUpdated: "01/10/2026",
   codePrefix: "ĐM-", // mã hiển thị: ĐM-4356
