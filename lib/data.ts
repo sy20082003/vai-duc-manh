@@ -6,9 +6,9 @@ export const SITE = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://vaiducmanh.com.vn",
   shortName: "Đức Mạnh",
   legalName: "Công ty TNHH Sản xuất Thương mại Xuất nhập khẩu Đức Mạnh",
-  taxId: "Đang cập nhật", // TODO
+  taxId: "0305491088",
   address: "714 – 716 Phạm Văn Bạch, Phường 12, Quận Gò Vấp, TP.HCM",
-  hours: "Thứ 2 – Chủ nhật, 8:00 – 18:00", // TODO
+  hours: "Thứ 2 – Thứ 7, 8:00 – 17:00",
   phone: "0909 722 975", // số cho nút "Gọi đặt vải" / "Gọi ngay"
   zalo: "0909 722 975", // số Zalo trên trang Liên hệ
   // zalo: true → hiện trong bong bóng Zalo
@@ -37,7 +37,7 @@ export type Book = {
 
 /* GIÁ THEO QUYỂN MẪU – mọi mã trong cùng quyển có chung giá */
 export const BOOKS: Book[] = [
-  { id: "38", priceMin: 75000, priceMax: 85000, width: "2m8 – 3m2" },
+  { id: "38", priceMin: null, priceMax: null, width: "2m8 – 3m2" }, // TODO: giá
   { id: "39", priceMin: null, priceMax: null, width: "2m8 – 3m2" }, // TODO: giá
   { id: "40", priceMin: null, priceMax: null, width: "2m8 – 3m2" }, // TODO: giá
   { id: "42", priceMin: null, priceMax: null, width: "2m8 – 3m2" }, // TODO: giá
