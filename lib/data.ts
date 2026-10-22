@@ -16,7 +16,6 @@ export const SITE = {
     { num: "0909 722 975", label: "Tư vấn – A. Thành", zalo: true },
     { num: "0936 100 400", label: "Tư vấn", zalo: true },
     { num: "0934 111 033", label: "Tư vấn", zalo: true },
-    { num: "0938 505 100", label: "A. Mạnh", zalo: false },
   ],
   email: "", // TODO: điền email thật; để trống thì website tự ẩn email
   facebook: "https://www.facebook.com/profile.php?id=61588620402972",
