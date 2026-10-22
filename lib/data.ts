@@ -8,6 +8,10 @@ export const SITE = {
   legalName: "Công ty TNHH Sản xuất Thương mại Xuất nhập khẩu Đức Mạnh",
   taxId: "0305491088",
   address: "714 – 716 Phạm Văn Bạch, Phường 12, Quận Gò Vấp, TP.HCM",
+  // Địa chỉ dùng cho bản đồ nhúng ở trang Liên hệ. Nếu ghim chưa đúng chỗ, thay mapEmbed bằng link
+  // lấy từ Google Maps: Chia sẻ → Nhúng bản đồ → chép phần src="..."
+  mapQuery: "714 Phạm Văn Bạch, Phường 12, Gò Vấp, Hồ Chí Minh",
+  mapEmbed: "",
   hours: "Thứ 2 – Thứ 7, 8:00 – 17:00",
   phone: "0909 722 975", // số cho nút "Gọi đặt vải" / "Gọi ngay"
   zalo: "0909 722 975", // số Zalo trên trang Liên hệ
@@ -105,4 +109,6 @@ export const priceText = (b?: Book) => {
   if (!b || b.priceMin == null) return null;
   return b.priceMax && b.priceMax !== b.priceMin ? `${k(b.priceMin)} – ${k(b.priceMax)}đ` : `${k(b.priceMin)}đ`;
 };
+export const mapEmbedSrc =
+  SITE.mapEmbed || `https://www.google.com/maps?q=${encodeURIComponent(SITE.mapQuery)}&hl=vi&z=17&output=embed`;
 export const mapHref = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(SITE.address);

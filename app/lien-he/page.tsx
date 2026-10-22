@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageHead from "@/components/PageHead";
 import { FacebookIcon, MailIcon, PhoneIcon, PinIcon } from "@/components/Icons";
-import { SITE, mapHref, telHref, zaloHref } from "@/lib/data";
+import { SITE, mapEmbedSrc, mapHref, telHref, zaloHref } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Liên hệ",
@@ -65,6 +65,26 @@ export default function ContactPage() {
                 <b>{SITE.address}</b>
               </span>
             </a>
+          </div>
+          <div className="map-box">
+            <div className="map-head">
+              <h2>Bản đồ đường đi</h2>
+              <a className="btn btn-ghost btn-sm" href={mapHref} target="_blank" rel="noopener noreferrer">
+                Mở Google Maps
+              </a>
+            </div>
+            <p className="lead" style={{ marginTop: 0 }}>
+              {SITE.address}
+            </p>
+            <div className="map-frame">
+              <iframe
+                src={mapEmbedSrc}
+                title={`Bản đồ ${SITE.legalName}`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
           </div>
         </div>
       </section>
