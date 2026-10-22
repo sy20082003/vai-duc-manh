@@ -9,6 +9,7 @@ const LINKS = [
   { href: "/", label: "Trang chủ" },
   { href: "/san-pham", label: "Sản phẩm" },
   { href: "/bang-gia", label: "Bảng giá" },
+  { href: "/tin-tuc", label: "Tin tức" },
   { href: "/gioi-thieu", label: "Giới thiệu" },
   { href: "/lien-he", label: "Liên hệ" },
 ];
@@ -30,7 +31,7 @@ export default function Header() {
         </button>
         <nav className={`nav${open ? " open" : ""}`} id="nav">
           {LINKS.map((l) => (
-            <Link key={l.href} href={l.href} aria-current={pathname === l.href ? "page" : undefined}>
+            <Link key={l.href} href={l.href} aria-current={(l.href === "/" ? pathname === "/" : pathname.startsWith(l.href)) ? "page" : undefined}>
               {l.label}
             </Link>
           ))}
