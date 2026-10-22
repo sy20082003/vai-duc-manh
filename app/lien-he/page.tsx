@@ -81,7 +81,7 @@ export default function ContactPage() {
                 src={mapEmbedSrc}
                 title={`Bản đồ ${SITE.legalName}`}
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+                referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               />
             </div>

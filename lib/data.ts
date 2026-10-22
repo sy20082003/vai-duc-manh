@@ -11,7 +11,8 @@ export const SITE = {
   // Địa chỉ dùng cho bản đồ nhúng ở trang Liên hệ. Nếu ghim chưa đúng chỗ, thay mapEmbed bằng link
   // lấy từ Google Maps: Chia sẻ → Nhúng bản đồ → chép phần src="..."
   mapQuery: "714 Phạm Văn Bạch, Phường 12, Gò Vấp, Hồ Chí Minh",
-  mapEmbed: "",
+  mapEmbed:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1205.450886483523!2d106.64364241895811!3d10.836386906911107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175299d856f8fd9%3A0x993623304e5c4d35!2zQ8O0bmcgVHkgVG5oaCBT4bqjbiBYdeG6pXQgVGjGsMahbmcgTeG6oWkgROG7i2NoIFbhu6UgWHXhuqV0IE5o4bqtcCBLaOG6qXUgxJDhu6ljIE3huqFuaA!5e1!3m2!1svi!2s!4v1792699114472!5m2!1svi!2s",
   hours: "Thứ 2 – Thứ 7, 8:00 – 17:00",
   phone: "0909 722 975", // số cho nút "Gọi đặt vải" / "Gọi ngay"
   zalo: "0909 722 975", // số Zalo trên trang Liên hệ
