@@ -22,6 +22,29 @@ export type Post = {
 
 export const POSTS: Post[] = [
   {
+    slug: "xa-kho-dm-4334",
+    title: "Xả kho ĐM-4334: chỉ từ 58.000đ/m cho đơn từ 5 cây",
+    date: "2026-10-25",
+    cover: "/images/products/dm-4334.jpg",
+    excerpt:
+      "Đức Mạnh xả kho mã vải ĐM-4334 (quyển 43) cho đơn hàng từ 5 cây trở lên: khổ 2m8 giá 58.000đ/m, khổ 3m2 giá 68.000đ/m.",
+    body: [
+      "Đức Mạnh triển khai chương trình xả kho mã vải ĐM-4334 thuộc quyển mẫu 43, dành cho các đại lý và xưởng may rèm lấy hàng số lượng lớn.",
+      "## Giá xả kho",
+      "- Khổ 2m8 (280cm): 58.000đ/m (giá thường 65.000đ/m)",
+      "- Khổ 3m2 (320cm): 68.000đ/m (giá thường 75.000đ/m)",
+      "## Điều kiện áp dụng",
+      "- Áp dụng cho đơn hàng từ 5 cây trở lên.",
+      "- Giá tính theo mét, chưa gồm VAT và phí vận chuyển.",
+      "- Số lượng hàng xả kho có hạn, đại lý vui lòng liên hệ trước để kiểm tra tồn kho.",
+      "## Thông tin mã vải ĐM-4334",
+      "- Thuộc quyển mẫu 43, chất liệu 100% polyester.",
+      "- Khổ vải 2m8 – 3m2, may rèm liền tấm không cần nối.",
+      "- Hoa văn dệt nổi trên nền xanh, phù hợp phòng khách, phòng ngủ và công trình.",
+      "Để đặt hàng hoặc hỏi tồn kho, đại lý nhắn Zalo hoặc gọi các số tư vấn của Đức Mạnh. Xem ảnh mẫu tại trang Sản phẩm, mục Quyển 43.",
+    ],
+  },
+  {
     slug: "cac-loai-phu-kien-rem-cua",
     title: "Các loại phụ kiện rèm cửa và cách chọn cho từng kiểu rèm",
     date: "2026-10-25",
