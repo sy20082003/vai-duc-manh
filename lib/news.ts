@@ -22,6 +22,38 @@ export type Post = {
 
 export const POSTS: Post[] = [
   {
+    slug: "cac-loai-phu-kien-rem-cua",
+    title: "Các loại phụ kiện rèm cửa và cách chọn cho từng kiểu rèm",
+    date: "2026-10-25",
+    cover: "/images/products/dm-4336.jpg",
+    excerpt:
+      "Một bộ rèm hoàn chỉnh cần nhiều phụ kiện đi kèm: thanh treo, khoen ô-rê, trụ đỡ, dây vén, móc treo và băng keo. Bài viết giúp đại lý chọn đúng phụ kiện cho từng kiểu rèm.",
+    body: [
+      "Vải đẹp mới là một nửa của bộ rèm. Phụ kiện chọn đúng giúp rèm treo chắc, kéo êm và giữ dáng lâu. Dưới đây là 5 nhóm phụ kiện đại lý thường cần khi thi công.",
+      "## 1. Thanh treo rèm",
+      "Thanh treo là phần chịu lực chính của bộ rèm.",
+      "- Thanh tròn: dùng cho rèm ô-rê (khoen), kiểu rèm gợn sóng phổ biến trong nhà ở.",
+      "- Thanh ray trượt: dùng cho rèm móc, rèm xếp ly, kéo êm và gọn.",
+      "- Thanh đôi: cho bộ rèm hai lớp vải và voan.",
+      "Nên chọn thanh dài hơn khung cửa mỗi bên để khi mở, rèm không che mất cửa.",
+      "## 2. Khoen / vòng ô-rê",
+      "Khoen được bấm lên đầu rèm để luồn vào thanh tròn, tạo các nếp gợn sóng đều. Khoen có loại nhựa và kim loại, nhiều màu như bạc, đồng, đen, vàng. Lưu ý chọn khoen có lỗ vừa với đường kính thanh treo để rèm kéo nhẹ.",
+      "## 3. Trụ đỡ thanh treo",
+      "Trụ đỡ (bát đỡ) giữ thanh treo trên tường hoặc trần.",
+      "- Trụ đơn cho rèm một lớp, trụ đôi cho rèm hai lớp.",
+      "- Cửa rộng nên thêm trụ đỡ ở giữa để thanh không bị võng khi rèm dày và nặng.",
+      "## 4. Dây vén rèm",
+      "Dây vén giữ rèm gọn sang hai bên khi mở, giúp phòng thoáng sáng và tạo điểm nhấn trang trí. Các loại thường dùng: dây vén tua rua, dây vén nam châm và móc vén gắn tường.",
+      "## 5. Móc treo & băng keo rèm",
+      "Băng keo rèm (băng xếp ly) được may lên đầu rèm để tạo nếp đều và giữ form. Móc treo cài vào băng keo để treo rèm lên ray. Hai phụ kiện này luôn đi cùng nhau với rèm móc và rèm xếp ly.",
+      "## Gợi ý chọn nhanh theo kiểu rèm",
+      "- Rèm ô-rê: thanh tròn + khoen ô-rê + trụ đỡ + dây vén.",
+      "- Rèm xếp ly / rèm móc: thanh ray + băng keo + móc treo + dây vén.",
+      "- Rèm hai lớp (vải + voan): chọn thanh đôi hoặc trụ đỡ đôi.",
+      "Đức Mạnh cung cấp cả vải rèm và phụ kiện, đại lý có thể lấy hàng đồng bộ cho từng công trình. Xem danh mục tại mục Phụ kiện trên website hoặc nhắn Zalo để được tư vấn.",
+    ],
+  },
+  {
     slug: "vai-rem-kho-cao-2m8-3m2-la-gi",
     title: "Vải rèm khổ cao 2m8 – 3m2 là gì? Vì sao đại lý nên chọn",
     date: "2026-10-22",

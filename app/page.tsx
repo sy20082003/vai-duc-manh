@@ -4,6 +4,8 @@ import { PRODUCTS, SITE } from "@/lib/data";
 import Lookup from "@/components/Lookup";
 import ProductGrid from "@/components/ProductGrid";
 import AskButton from "@/components/AskButton";
+import AccessoryIcon from "@/components/AccessoryIcon";
+import { ACCESSORIES } from "@/lib/accessories";
 
 export default function HomePage() {
   return (
@@ -53,6 +55,30 @@ export default function HomePage() {
       </section>
 
       <section className="block">
+        <div className="wrap">
+          <div className="sec-head">
+            <div>
+              <h2>Phụ kiện rèm cửa</h2>
+              <p className="lead">Lấy vải và phụ kiện cùng một nơi để hoàn thiện bộ rèm.</p>
+            </div>
+            <Link className="btn btn-ghost btn-sm" href="/phu-kien">
+              Xem phụ kiện
+            </Link>
+          </div>
+          <div className="acc-strip">
+            {ACCESSORIES.map((g) => (
+              <Link key={g.id} className="acc-tile" href={`/phu-kien#${g.id}`}>
+                <span>
+                  <AccessoryIcon icon={g.icon} size={40} />
+                </span>
+                {g.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="block" style={{ background: "var(--paper)" }}>
         <div className="wrap">
           <div className="sec-head">
             <h2>Vì sao đại lý chọn Đức Mạnh</h2>

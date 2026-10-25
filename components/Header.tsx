@@ -8,6 +8,7 @@ import { SITE, telHref } from "@/lib/data";
 const LINKS = [
   { href: "/", label: "Trang chủ" },
   { href: "/san-pham", label: "Sản phẩm" },
+  { href: "/phu-kien", label: "Phụ kiện" },
   { href: "/bang-gia", label: "Bảng giá" },
   { href: "/tin-tuc", label: "Tin tức" },
   { href: "/gioi-thieu", label: "Giới thiệu" },

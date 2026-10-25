@@ -4,7 +4,7 @@ import { POSTS } from "@/lib/news";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const pages: MetadataRoute.Sitemap = ["", "/san-pham", "/bang-gia", "/tin-tuc", "/gioi-thieu", "/lien-he"].map((path) => ({
+  const pages: MetadataRoute.Sitemap = ["", "/san-pham", "/phu-kien", "/bang-gia", "/tin-tuc", "/gioi-thieu", "/lien-he"].map((path) => ({
     url: `${SITE.url}${path}`,
     lastModified: now,
     changeFrequency: path === "/san-pham" || path === "/bang-gia" || path === "/tin-tuc" ? "weekly" : "monthly",

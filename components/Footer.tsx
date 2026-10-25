@@ -12,6 +12,7 @@ export default function Footer() {
         <div>
           <b>Trang</b>
           <Link href="/san-pham">Sản phẩm</Link>
+          <Link href="/phu-kien">Phụ kiện</Link>
           <Link href="/bang-gia">Bảng giá</Link>
           <Link href="/tin-tuc">Tin tức</Link>
           <Link href="/gioi-thieu">Giới thiệu</Link>
