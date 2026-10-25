@@ -24,7 +24,7 @@ export const SITE = {
   ],
   email: "", // TODO: điền email thật; để trống thì website tự ẩn email
   facebook: "https://www.facebook.com/profile.php?id=61588620402972",
-  priceUpdated: "01/10/2026",
+  priceUpdated: "25/10/2026",
   codePrefix: "ĐM-", // mã hiển thị: ĐM-4356
   homeCount: 8, // số sản phẩm hiện ở trang chủ
   about:
@@ -33,19 +33,23 @@ export const SITE = {
 
 export type Book = {
   id: string; // số quyển = 2 số đầu của mã vải
-  priceMin: number | null; // đ/m, null nếu chưa có giá
-  priceMax: number | null;
   width: string;
   comp?: string;
+  /* Giá lẻ theo mét (đ/m). Dùng MỘT trong hai cách:
+     - Giá theo khổ:  w280: 75000, w320: 85000
+     - Khoảng giá:    range: [65000, 75000]
+     Không điền gì → hiện "Liên hệ báo giá" */
+  w280?: number;
+  w320?: number;
+  range?: [number, number];
+  rollDiscount?: number; // mua nguyên cây giảm bao nhiêu đ/m
 };
 
 /* GIÁ THEO QUYỂN MẪU – mọi mã trong cùng quyển có chung giá */
 export const BOOKS: Book[] = [
-  { id: "38", priceMin: null, priceMax: null, width: "2m8 – 3m2" }, // TODO: giá
-  { id: "39", priceMin: null, priceMax: null, width: "2m8 – 3m2" }, // TODO: giá
-  { id: "40", priceMin: null, priceMax: null, width: "2m8 – 3m2" }, // TODO: giá
-  { id: "42", priceMin: null, priceMax: null, width: "2m8 – 3m2" }, // TODO: giá
-  { id: "43", priceMin: null, priceMax: null, width: "2m8 – 3m2", comp: "100% Polyester" }, // TODO: giá
+  { id: "39", width: "2m8 – 3m2", w280: 80000, w320: 90000, rollDiscount: 4000 },
+  { id: "42", width: "2m8 – 3m2", w280: 75000, w320: 85000, rollDiscount: 4000 },
+  { id: "43", width: "2m8 – 3m2", comp: "100% Polyester", range: [65000, 75000], rollDiscount: 4000 },
 ];
 
 export type Product = {
@@ -104,12 +108,21 @@ export const cp = (code: string) => SITE.codePrefix + code;
 export const telHref = (num: string) => "tel:" + num.replace(/\s/g, "");
 export const zaloHref = (num: string) => "https://zalo.me/" + num.replace(/\s/g, "");
 export const bookOf = (code: string) => BOOKS.find((b) => code.startsWith(b.id));
-export const hasPrice = (b?: Book) => !!b && b.priceMin != null;
-const k = (n: number) => n.toLocaleString("vi-VN");
-export const priceText = (b?: Book) => {
-  if (!b || b.priceMin == null) return null;
-  return b.priceMax && b.priceMax !== b.priceMin ? `${k(b.priceMin)} – ${k(b.priceMax)}đ` : `${k(b.priceMin)}đ`;
+export const vnd = (n: number) => n.toLocaleString("vi-VN") + "đ";
+export const hasPrice = (b?: Book) => !!b && (b.w280 != null || b.w320 != null || b.range != null);
+/* Các dòng giá để hiển thị, VD [{label:"Khổ 2m8", value:"75.000đ/m"}, ...] */
+export const priceLines = (b?: Book): { label: string; value: string }[] => {
+  if (!b) return [];
+  if (b.range) return [{ label: "", value: `${vnd(b.range[0])} – ${vnd(b.range[1])}/m` }];
+  const out: { label: string; value: string }[] = [];
+  if (b.w280 != null) out.push({ label: "Khổ 2m8", value: `${vnd(b.w280)}/m` });
+  if (b.w320 != null) out.push({ label: "Khổ 3m2", value: `${vnd(b.w320)}/m` });
+  return out;
 };
+/* Giá gọn trên một dòng, VD "Khổ 2m8: 75.000đ/m · Khổ 3m2: 85.000đ/m" */
+export const priceText = (b?: Book) =>
+  hasPrice(b) ? priceLines(b).map((l) => (l.label ? `${l.label}: ${l.value}` : l.value)).join(" · ") : null;
+export const rollText = (b?: Book) => (b?.rollDiscount ? `Mua nguyên cây giảm ${vnd(b.rollDiscount)}/m` : null);
 export const mapEmbedSrc =
   SITE.mapEmbed || `https://www.google.com/maps?q=${encodeURIComponent(SITE.mapQuery)}&hl=vi&z=17&output=embed`;
 export const mapHref = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(SITE.address);

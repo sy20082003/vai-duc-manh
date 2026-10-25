@@ -2,27 +2,34 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageHead from "@/components/PageHead";
 import AskButton from "@/components/AskButton";
-import { BOOKS, SITE, cp, hasPrice, priceText, telHref } from "@/lib/data";
+import { BOOKS, SITE, cp, hasPrice, telHref, vnd } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Bảng giá",
-  description: "Bảng báo giá vải rèm cửa Đức Mạnh theo quyển mẫu. Giá áp dụng chung cho mọi mã trong quyển.",
+  description: "Bảng giá vải rèm cửa Đức Mạnh theo quyển mẫu, khổ 2m8 và 3m2. Mua nguyên cây được giảm thêm.",
   alternates: { canonical: "/bang-gia" },
 };
 
 export default function PricePage() {
+  const anyRoll = BOOKS.find((b) => b.rollDiscount);
   return (
     <>
-      <PageHead crumb="Bảng giá" title="Bảng báo giá" lead="Giá áp dụng chung cho tất cả mã vải trong cùng một quyển, tính theo mét." />
+      <PageHead crumb="Bảng giá" title="Bảng báo giá" lead="Giá lẻ tính theo mét, áp dụng chung cho tất cả mã vải trong cùng một quyển." />
       <section className="wrap" style={{ padding: "2rem 0 4rem" }}>
+        {anyRoll && (
+          <div className="promo">
+            <b>Ưu đãi nguyên cây:</b> mua nguyên cây được giảm thêm {vnd(anyRoll.rollDiscount!)}/m so với giá lẻ.
+          </div>
+        )}
         <div className="table-box">
           <table>
             <thead>
               <tr>
                 <th>Quyển mẫu</th>
                 <th>Mã vải</th>
-                <th>Khổ vải</th>
-                <th>Giá (đ/m)</th>
+                <th className="num">Khổ 2m8</th>
+                <th className="num">Khổ 3m2</th>
+                <th>Nguyên cây</th>
                 <th></th>
               </tr>
             </thead>
@@ -31,8 +38,21 @@ export default function PricePage() {
                 <tr key={b.id}>
                   <td className="bk">Quyển {b.id}</td>
                   <td>{cp(b.id)}xx</td>
-                  <td>{b.width}</td>
-                  <td className="pr">{hasPrice(b) ? priceText(b) : <span className="muted">Liên hệ</span>}</td>
+                  {!hasPrice(b) ? (
+                    <td className="pr num" colSpan={2}>
+                      <span className="muted">Liên hệ</span>
+                    </td>
+                  ) : b.range ? (
+                    <td className="pr num" colSpan={2} style={{ textAlign: "center" }}>
+                      {vnd(b.range[0])} – {vnd(b.range[1])}
+                    </td>
+                  ) : (
+                    <>
+                      <td className="pr num">{b.w280 != null ? vnd(b.w280) : <span className="muted">–</span>}</td>
+                      <td className="pr num">{b.w320 != null ? vnd(b.w320) : <span className="muted">–</span>}</td>
+                    </>
+                  )}
+                  <td>{b.rollDiscount ? <span className="roll-tag">Giảm {vnd(b.rollDiscount)}/m</span> : <span className="muted">–</span>}</td>
                   <td>
                     <Link className="link" href={`/san-pham?quyen=${b.id}`}>
                       Xem mẫu
@@ -44,8 +64,8 @@ export default function PricePage() {
           </table>
         </div>
         <p className="note">
-          Giá chưa gồm VAT và phí vận chuyển. Cập nhật ngày {SITE.priceUpdated}. Giá có thể thay đổi theo thời điểm, vui lòng liên hệ để xác nhận
-          trước khi đặt.
+          Giá tính theo mét, chưa gồm VAT và phí vận chuyển. Cập nhật ngày {SITE.priceUpdated}. Giá có thể thay đổi theo thời điểm, vui lòng liên
+          hệ để xác nhận trước khi đặt.
         </p>
         <div className="ctas" style={{ marginTop: "1.5rem" }}>
           <AskButton className="btn btn-primary">Hỏi giá qua Zalo</AskButton>

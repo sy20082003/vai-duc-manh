@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { bookOf, cp, hasPrice, priceText, type Product } from "@/lib/data";
+import { bookOf, cp, hasPrice, priceLines, priceText, rollText, type Product } from "@/lib/data";
 import AskButton from "./AskButton";
 
 type Props = { products: Product[]; highlight?: string | null; empty?: React.ReactNode };
@@ -40,7 +40,19 @@ export default function ProductGrid({ products, highlight, empty }: Props) {
               <div className="body">
                 <div className="code">{cp(p.code)}</div>
                 <div className="meta">{[b && `Quyển ${b.id}`, b?.width && `Khổ ${b.width}`].filter(Boolean).join(" · ")}</div>
-                {hasPrice(b) ? <div className="price">{priceText(b)}/m</div> : <div className="price none">Liên hệ báo giá</div>}
+                {hasPrice(b) ? (
+                  <div className="price-list">
+                    {priceLines(b).map((l) => (
+                      <div key={l.label || l.value} className="price-row">
+                        {l.label && <span>{l.label}</span>}
+                        <b>{l.value}</b>
+                      </div>
+                    ))}
+                    {rollText(b) && <div className="roll">{rollText(b)}</div>}
+                  </div>
+                ) : (
+                  <div className="price none">Liên hệ báo giá</div>
+                )}
                 <AskButton subject={`mã ${cp(p.code)}`}>Hỏi giá qua Zalo</AskButton>
               </div>
             </article>
@@ -67,7 +79,7 @@ export default function ProductGrid({ products, highlight, empty }: Props) {
               <div>
                 <b>{cp(zoom.code)}</b>
                 <small>
-                  {[zb && `Quyển ${zb.id}`, zb?.width && `Khổ ${zb.width}`, zb?.comp, hasPrice(zb) && `${priceText(zb)}/m`]
+                  {[zb && `Quyển ${zb.id}`, zb?.width && `Khổ ${zb.width}`, zb?.comp, priceText(zb), rollText(zb)]
                     .filter(Boolean)
                     .join(" · ")}
                 </small>

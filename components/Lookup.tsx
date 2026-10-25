@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { PRODUCTS, bookOf, cp, hasPrice, priceText } from "@/lib/data";
+import { PRODUCTS, bookOf, cp, hasPrice, priceText, rollText } from "@/lib/data";
 import AskButton from "./AskButton";
 
 type Result = { code: string; error?: "format" | "missing" } | null;
@@ -55,7 +55,8 @@ export default function Lookup() {
               <p>
                 {hasPrice(b) ? (
                   <>
-                    Giá <span className="pr">{priceText(b)}/m</span>
+                    Giá <span className="pr">{priceText(b)}</span>
+                    {rollText(b) && <> · {rollText(b)}</>}
                   </>
                 ) : (
                   "Giá: liên hệ báo giá"
