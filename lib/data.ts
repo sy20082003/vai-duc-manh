@@ -49,7 +49,7 @@ export type Book = {
 export const BOOKS: Book[] = [
   { id: "39", width: "2m8 – 3m2", w280: 80000, w320: 90000, rollDiscount: 4000 },
   { id: "42", width: "2m8 – 3m2", w280: 75000, w320: 85000, rollDiscount: 4000 },
-  { id: "43", width: "2m8 – 3m2", comp: "100% Polyester", range: [65000, 75000], rollDiscount: 4000 },
+  { id: "43", width: "2m8 – 3m2", comp: "100% Polyester", w280: 65000, w320: 75000, rollDiscount: 4000 },
 ];
 
 export type Product = {
